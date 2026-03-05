@@ -226,29 +226,34 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 </BaseLayout>
 
 <script>
-  const btnEn = document.getElementById('btn-en');
-  const btnKr = document.getElementById('btn-kr');
-  const contentEn = document.getElementById('content-en');
-  const contentKr = document.getElementById('content-kr');
+  document.addEventListener('astro:page-load', () => {
+    const btnEn = document.getElementById('btn-en');
+    const btnKr = document.getElementById('btn-kr');
+    const contentEn = document.getElementById('content-en');
+    const contentKr = document.getElementById('content-kr');
 
-  function switchLang(lang) {
-    if (lang === 'kr') {
-      contentEn.classList.add('hidden');
-      contentKr.classList.remove('hidden');
-      btnKr.classList.remove('btn-ghost');
-      btnKr.classList.add('btn-active');
-      btnEn.classList.remove('btn-active');
-      btnEn.classList.add('btn-ghost');
-    } else {
-      contentKr.classList.add('hidden');
-      contentEn.classList.remove('hidden');
-      btnEn.classList.remove('btn-ghost');
-      btnEn.classList.add('btn-active');
-      btnKr.classList.remove('btn-active');
-      btnKr.classList.add('btn-ghost');
+    // 현재 페이지(About)가 아닐 땐 실행하지 않음
+    if (!btnEn || !btnKr || !contentEn || !contentKr) return;
+
+    function switchLang(lang) {
+      if (lang === 'kr') {
+        contentEn.classList.add('hidden');
+        contentKr.classList.remove('hidden');
+        btnKr.classList.remove('btn-ghost');
+        btnKr.classList.add('btn-active');
+        btnEn.classList.remove('btn-active');
+        btnEn.classList.add('btn-ghost');
+      } else {
+        contentKr.classList.add('hidden');
+        contentEn.classList.remove('hidden');
+        btnEn.classList.remove('btn-ghost');
+        btnEn.classList.add('btn-active');
+        btnKr.classList.remove('btn-active');
+        btnKr.classList.add('btn-ghost');
+      }
     }
-  }
 
-  btnEn.addEventListener('click', () => switchLang('en'));
-  btnKr.addEventListener('click', () => switchLang('kr'));
+    btnEn.addEventListener('click', () => switchLang('en'));
+    btnKr.addEventListener('click', () => switchLang('kr'));
+  });
 </script>
