@@ -3,68 +3,252 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="About" sideBarActiveItemID="about">
-  <div class="mb-5">
+  <div class="mb-5 flex justify-between items-center">
     <div class="text-3xl w-full font-bold">About Me</div>
+    <div class="flex gap-1 bg-base-200 rounded-lg p-1">
+      <button id="btn-en" class="btn btn-sm btn-active">EN</button>
+      <button id="btn-kr" class="btn btn-sm btn-ghost">KR</button>
+    </div>
   </div>
 
-  <div class="mb-10 text-justify">
-    <p class="mb-4">
-      I have a broad interest in <b>AI</b>, <b>HCI</b>, and <b>Psychology</b>.
-      My ultimate goal is to pursue research that is necessary yet underexplored.
-    </p>
-    <p class="mb-4">
-      Recently, I've been interested in how well the mental models of AI and humans are aligned,
-      and whether this alignment can help us better understand autism.
-    </p>
+  <!-- ==================== ENGLISH ==================== -->
+  <div id="content-en">
+    <div class="mb-10 text-justify">
+      <p class="mb-4">
+        I study <b>AI</b>, <b>HCI (Human-Computer Interaction)</b>, and <b>Psychology</b>.
+        My ultimate research goal is to solve social problems that remain unaddressed.
+        Recently, I've been drawn to studies showing that AI and human cognitive structures are remarkably similar,
+        and I believe this similarity can become a powerful tool for better understanding autism.
+      </p>
+      <p class="mb-4">
+        Below, I share what I think about, what drives my research, and a bit more about who I am.
+        I hope it helps you understand me better.
+      </p>
+    </div>
+
+    <!-- EN Section 1 -->
+    <div class="mb-5">
+      <div class="text-3xl w-full font-bold">What Do We Live For</div>
+    </div>
+    <div class="mb-10 text-justify">
+      <p class="mb-4">
+        <b>Why do people live?</b> I've heard many different answers from people at university and across various communities.
+        Some say it's for joy and happiness; others say they simply live because they were born.
+        If you asked me, I would say I live for the Lord — and I try to make the most of each day given to me.
+      </p>
+      <p class="mb-4">
+        Yet the world we live in is inherently full of <b>unavoidable suffering</b>.
+        In the web novels I enjoy, protagonists always resolve to "grow strong enough so that no one can threaten my family and my life."
+        These lines exist to drive the plot, but they also reveal a deep human fear:
+        the dread of becoming an object rather than a subject — of having our happiness stripped away by forces beyond our control,
+        and being powerless to resist.
+      </p>
+      <p class="mb-4">
+        Everyone has different reasons for living. Just as I place more value in Scripture than in others' philosophies,
+        no amount of sharing can easily change how another person chooses to live.
+        Still, it breaks my heart to think that anyone's reason for living can be unjustly disrupted —
+        that a single moment can shatter a person or a family.
+        I've come to realize that <b>the world we live in is designed in a way that makes it all too easy for our hearts to crumble</b>.
+      </p>
+    </div>
+
+    <!-- EN Section 2 -->
+    <div class="mb-5">
+      <div class="text-3xl w-full font-bold">Why I Do Research</div>
+    </div>
+    <div class="mb-10 text-justify">
+      <p class="mb-4">
+        As individuals, we often feel powerless. I cannot stop wars, end bullying in schools,
+        or fix the fundamental inequalities of society. But these are problems that <b>must be solved — and someone has to try</b>.
+        So I began searching for what <i>I</i> could do.
+      </p>
+      <p class="mb-4">
+        As the digital age advances and jobs disappear faster than they're created, people grow anxious.
+        We can reach anyone at any time, go anywhere — yet loneliness keeps rising.
+        Provocative media and consumer culture prevent people from thinking independently,
+        trapping them in manufactured desires. We compare ourselves to others and sink into despair.
+      </p>
+      <p class="mb-4">
+        One person cannot reverse these societal trends. But we can reduce their impact.
+        Autism spectrum disorder is increasing rapidly around the world. The exact cause remains unclear,
+        <b>but within a decade, encountering someone with autism will be commonplace everywhere.</b>
+      </p>
+      <div class="my-6">
+        <img src="/autism_statistics.png" alt="Autism spectrum disorders prevalence trend" class="rounded-xl mx-auto shadow-md" />
+      </div>
+      <p class="mb-4">
+        Yet there is <b>no definitive cure</b> for autism. Psychological therapy is necessary,
+        but even getting patients to participate in clinical research is a challenge.
+        Without support, they may struggle to develop socially and to communicate with others.
+        How can we reduce the impact of this growing trend?
+        Can families affected by autism <b>find hope for treatment</b> instead of watching their lives fall apart?
+      </p>
+      <p class="mb-4">
+        Below is the future I dream of — my vision as a researcher:
+      </p>
+      <ul class="list-disc list-inside space-y-2 mb-4">
+        <li>Investigate whether injecting an autistic person's cognitive profile into AI can enable viable clinical simulations.</li>
+        <li>Develop communication interfaces that allow individuals with autism — who struggle with conventional interaction — to express themselves.</li>
+        <li>Replace resource-intensive interventions with everyday-life-based recovery approaches, offering hope and practical relief to families raising children with autism.</li>
+      </ul>
+      <p class="mb-4">
+        I hope that more researchers will share this vision, and that one day,
+        people everywhere can break free from the hardships they cannot resist
+        and <b>live their lives as the authors of their own stories</b>.
+      </p>
+    </div>
+
+    <!-- EN Section 3 -->
+    <div class="mb-5">
+      <div class="text-3xl w-full font-bold">Beyond Research</div>
+    </div>
+    <div class="mb-10 text-justify">
+      <p class="mb-4">
+        The biggest catalyst for my way of thinking was discipleship training through CCC (Cru).
+        At POSTECH, I joined the Pohang CCC chapter and underwent discipleship training.
+        It transformed my future from one fixated on money and a stable job into one pursuing a greater vision.
+      </p>
+      <p class="mb-4">
+        Beyond that, I love talking with people and enjoy board games and good food.
+        I also play instruments as my main way to relieve stress.
+        The tone here may be lighter than the rest of this page, but if you'd like to get to know me better,
+        please feel free to reach out. Thank you for reading!
+      </p>
+    </div>
   </div>
 
-  <!-- Section 1 -->
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">What Do We Live For</div>
-  </div>
-  <div class="mb-10 text-justify">
-    <p class="mb-4">
-      The world is full of suffering. Cruelty wounds others, and our own flaws inevitably hurt those around us.
-      Even in the absence of malice, we spend our lives in constant tension — building walls, seeking safety,
-      and bracing ourselves against uncertainty.
-    </p>
-    <p class="mb-4">
-      I often wonder: if life is so fragile and pain so pervasive, what makes it worth living?
-      I believe the answer lies in choosing to face that suffering — not by looking away, but by working toward
-      something that eases the burden for others, even just a little.
-    </p>
-  </div>
+  <!-- ==================== KOREAN ==================== -->
+  <div id="content-kr" class="hidden">
+    <div class="mb-10 text-justify">
+      <p class="mb-4">
+        저는 <b>AI</b>와, <b>HCI (Human-Computer Interaction)</b>, <b>심리학</b>에 관심을 가지고 공부하고 있습니다.
+        연구의 궁극적인 목표는 아직 해결되지 않은 사회적 문제를 해결하는 것입니다.
+        최근에는 AI와 사람의 사고구조가 비슷하다는 연구 결과에 관심을 가지고
+        이러한 유사성이 자폐아를 더 이해하는 도구가 될 것이라 생각하고 있습니다.
+      </p>
+      <p class="mb-4">
+        이 아래에서는 제가 어떤 생각을 하고 사는지, 그래서 무엇을 목표로 연구를 하고 있는지 자세히 적어보았습니다.
+        저를 이해하시는데 많은 도움이 되실 것이라 생각합니다.
+      </p>
+    </div>
 
-  <!-- Section 2 -->
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Why I Do Research</div>
-  </div>
-  <div class="mb-10 text-justify">
-    <p class="mb-4">
-      Some people in this world experience it in ways most of us never fully understand.
-      Whether due to cognitive differences, social barriers, or simply being overlooked,
-      there are those who struggle to connect, communicate, or be understood.
-    </p>
-    <p class="mb-4">
-      I do research because I want to bridge that gap. By studying how AI and humans align in their understanding
-      of the world, I hope to uncover insights that help us better support those who think and perceive differently —
-      particularly individuals on the autism spectrum. Research, to me, is not just an academic pursuit;
-      it is a way to advocate for the underexplored and the unheard.
-    </p>
-  </div>
+    <!-- KR Section 1 -->
+    <div class="mb-5">
+      <div class="text-3xl w-full font-bold">인생에 대한 고찰</div>
+    </div>
+    <div class="mb-10 text-justify">
+      <p class="mb-4">
+        <b>사람들은 왜 사는 걸까요?</b> 대학교와 여러 소통 플랫폼에서 많은 사람들의 이야기를 들었지만 각자각자의 생각이 달랐습니다.
+        누군가는 즐거움과 행복이라고 하는 한편, 누군가는 그저 태어났기 때문에 살아가는 것이라고 하였습니다.
+        만약 저의 견해를 묻는다고 한다면, 저는 주를 위하여 산다고 하겠습니다.
+        그리고 나에게 주어진 하루하루를 최선을 다해 살아가고 있습니다.
+      </p>
+      <p class="mb-4">
+        그러나, 우리가 사는 이 세상은 본질적으로 <b>"피할 수 없는 고통"</b>이 많습니다.
+        제가 좋아하는 웹소설들에서 주인공들은 항상 '나의 가족들과 나의 삶을 지키기 위해서는 다른 사람들에게 방해 받지 않을 정도의 힘을 길러야겠다'는 다짐을 합니다.
+        이런 고백은 이야기의 전개를 위한 대사이기도 하지만, 일상에서 주체가 아닌 객체로 전락하여
+        외부의 요인으로 인해 행복이 빼앗기는 것과, 그것에 저항하지 못 한다는 사실에 대한 우리들의 두려움을 보여줍니다.
+      </p>
+      <p class="mb-4">
+        각자의 삶의 이유는 다르기에, 제가 다른 사람의 이야기들보다 성경 속 말씀에 더 가치를 두듯이
+        다른 사람들에게 저의 이야기를 아무리 전달하고 전파해도 한 사람이 살아가는 태도를 바꾸기는 쉽지 않습니다.
+        그렇지만, 각자가 살아가는 삶의 이유는 부당하게 방해 받으며 때로는 한 순간에 한 사람과 가정의 삶이 무너진다는 사실은
+        생각만 해도 마음이 아파옵니다.
+        <b>우리가 지금 살아가는 세상은, 각 사람의 마음을 지키지 못 하고 쉽게 무너지도록 설계 되어있다는 것을 발견했습니다.</b>
+      </p>
+    </div>
 
-  <!-- Section 3 -->
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Beyond Research</div>
-  </div>
-  <div class="mb-10 text-justify">
-    <p class="mb-4">
-      Outside of my academic life, I find meaning and joy in a few things that keep me grounded:
-    </p>
-    <ul class="list-disc list-inside space-y-2">
-      <li><b>CCC & Discipleship</b> — I'm actively involved in CCC (Cru) and discipleship training, where I grow in faith and community.</li>
-      <li><b>Music</b> — I play instruments as a way to express myself and unwind. Music has always been a constant companion.</li>
-      <li><b>Gaming</b> — Games are where I recharge. Whether it's strategic thinking or just having fun, gaming is my go-to break.</li>
-    </ul>
+    <!-- KR Section 2 -->
+    <div class="mb-5">
+      <div class="text-3xl w-full font-bold">연구의 이유와 비전</div>
+    </div>
+    <div class="mb-10 text-justify">
+      <p class="mb-4">
+        그러나 우리 각 사람은 소시민과 같아 할 수 있는 것이 적어 보입니다.
+        적어도 저는, 전쟁을 멈출수도 없고 각 학교에서 벌어지는 따돌림을 막을수도 없으며, 사회의 본질적인 불평등을 해결할 수도 없습니다.
+        그러나, <b>해결되어야 하는 일이며 누군가는 해야 합니다.</b>
+        그렇게 제가 할 수 있는 일들을 찾아보기 시작했습니다.
+      </p>
+      <p class="mb-4">
+        디지털 시대가 다가오고 일자리가 창출 되는 속도보다 사라지는 속도가 높아지면서 많은 사람들이 불안해합니다.
+        언제든지 서로 연락할 수 있고 어디든지 갈 수 있도록 세상은 변하지만 외로움을 느끼는 사람들은 많아집니다.
+        자극적인 미디어와 여러 문화들은 각 사람들이 자신의 생각대로 사고하지 못 하게 하고,
+        기업과 상품이 만든 욕구에 빠져들게 합니다.
+        그렇게 다른 사람들과 비교하며 우울해집니다.
+      </p>
+      <p class="mb-4">
+        한 개인이 각 사람의 심리적인 어려움에 대한 사회적 트랜드를 막는것은 불가능합니다.
+        그러나, 그 영향을 줄이는 것은 가능합니다.
+        자폐증(Autism)을 앓고 있는 사람들이 급증하고 있습니다.
+        그 이유는 명확히 밝혀진 바 없지만, <b>10년 뒤에는 전세계 어디에서는 자폐증을 겪는 사람을 쉽게 발견 할 수 있을 것입니다.</b>
+      </p>
+      <div class="my-6">
+        <img src="/autism_statistics.png" alt="자폐증 유병률 통계" class="rounded-xl mx-auto shadow-md" />
+      </div>
+      <p class="mb-4">
+        그러나 자폐는 <b>명확한 치료 방법이 없습니다</b>. 심리 상담을 해야 하는데, 환자를 임상 실험에 참여 시키는 것 부터가 어렵습니다.
+        그렇기에 사회적으로 발달되지 못 하거나, 사람들과 대화하고 소통하지 못 하게 됩니다.
+        어떻게 이런 사회적 흐름의 영향을 줄일 수 있을까요?
+        원하지 않은 자폐증으로 인해 많은 가족이 생계가 무너지거나 울지 않고 <b>치료의 희망을 꿈꿀 수 있을까요?</b>
+      </p>
+      <p class="mb-4">
+        아래는 제가 꿈꾸고 있는 미래이자, 연구자로서의 비전입니다.
+      </p>
+      <ul class="list-disc list-inside space-y-2 mb-4">
+        <li>AI 에게 자폐아의 자아를 주입하여 임상 실험이 진행될 수 있는지, 효과가 있는지 연구한다.</li>
+        <li>사고 방식이나 소통이 안 되는 자폐아가 임할 수 있는 소통 창구 및 인터페이스를 개발한다.</li>
+        <li>인적 자원이 많이 드는 방식이 아니라, 일상 기반 회복 방식을 통해서 자폐아를 기르고 있는 가정들에게 생길 문제를 막고 해결의 희망을 제공한다.</li>
+      </ul>
+      <p class="mb-4">
+        그리고 이런 비전을 가진 연구자들이 많아져서 세상의 많은 사람들이
+        저항할 수 없는 어려움에서 벗어나 <b>자신의 인생을 주체적으로 살 수 있는 세상</b>이 오길 바랍니다.
+      </p>
+    </div>
+
+    <!-- KR Section 3 -->
+    <div class="mb-5">
+      <div class="text-3xl w-full font-bold">그 외에 내 삶을 이루는 구성요소</div>
+    </div>
+    <div class="mb-10 text-justify">
+      <p class="mb-4">
+        이렇게 생각하게 된 가장 큰 계기는 CCC 에서의 제자 훈련이었습니다.
+        저는 포항공대에서 포항 지구 CCC에 소속되어 제자훈련을 받았으며
+        돈과 안정적인 직장만을 바라던 미래에서 이뤄가야 하는 큰 비전을 발견하였습니다.
+      </p>
+      <p class="mb-4">
+        그 외로는 사람들과 대화하기를 좋아하고, 보드게임과 맛있는 음식을 먹는 것을 좋아합니다.
+        악기 연주하는 것을 즐겨하며 주된 스트레스 해소법으로 삼습니다.
+        위 글의 내용과 분위기가 달라 많이 적지는 못 하지만,
+        더 저에 대해 알아가고 싶다면 편하게 연락 주시면 좋겠습니다. 읽어주셔서 감사합니다!
+      </p>
+    </div>
   </div>
 </BaseLayout>
+
+<script>
+  const btnEn = document.getElementById('btn-en');
+  const btnKr = document.getElementById('btn-kr');
+  const contentEn = document.getElementById('content-en');
+  const contentKr = document.getElementById('content-kr');
+
+  function switchLang(lang) {
+    if (lang === 'kr') {
+      contentEn.classList.add('hidden');
+      contentKr.classList.remove('hidden');
+      btnKr.classList.remove('btn-ghost');
+      btnKr.classList.add('btn-active');
+      btnEn.classList.remove('btn-active');
+      btnEn.classList.add('btn-ghost');
+    } else {
+      contentKr.classList.add('hidden');
+      contentEn.classList.remove('hidden');
+      btnEn.classList.remove('btn-ghost');
+      btnEn.classList.add('btn-active');
+      btnKr.classList.remove('btn-active');
+      btnKr.classList.add('btn-ghost');
+    }
+  }
+
+  btnEn.addEventListener('click', () => switchLang('en'));
+  btnKr.addEventListener('click', () => switchLang('kr'));
+</script>
