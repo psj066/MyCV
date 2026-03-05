@@ -268,6 +268,56 @@ The configuration for the deployment varies depending on the platform where you 
 > **⚠️ CAUTION** </br>
 > The Blog pagination of this template is implemented using dynamic route parameters in its filename and for now this format is incompatible with SSR deploy configs, so please use the default static deploy options for your deployments.
 
+## GitHub Pages 배포 트러블슈팅 (CSS 미적용 문제)
+
+GitHub Pages에 배포했을 때 CSS가 적용되지 않고 스타일 없는 HTML만 표시되는 문제가 발생한 경우, 아래 원인과 해결 방법을 참고하세요.
+
+### 문제 1: `pnpm-lock.yaml` 잔존으로 인한 패키지 매니저 충돌
+
+**증상**: GitHub Actions 빌드 시 `"No pnpm version is specified"` 에러 발생, 빌드 실패.
+
+**원인**: 이 프로젝트 템플릿(Astrofy)은 원래 pnpm 기반으로 만들어져 `pnpm-lock.yaml`이 포함되어 있습니다. `withastro/action@v2`는 lockfile을 감지하여 사용할 패키지 매니저를 자동 선택하는데, `pnpm-lock.yaml`이 존재하면 pnpm을 사용하려고 합니다. 하지만 `package.json`에 pnpm 버전이 지정되어 있지 않아 빌드가 실패합니다.
+
+**해결**: 로컬에서 npm을 사용하는 경우 `pnpm-lock.yaml`을 삭제하고, `deploy.yml`에서 `package-manager: pnpm@latest` 설정을 제거합니다.
+
+```bash
+# pnpm-lock.yaml 삭제
+rm pnpm-lock.yaml  # (Windows: del pnpm-lock.yaml)
+```
+
+### 문제 2: Jekyll이 `_astro/` 폴더를 무시
+
+**증상**: 빌드는 성공하지만, 배포된 사이트에서 `_astro/` 경로의 CSS/JS 파일이 404로 로드 실패.
+
+**원인**: GitHub Pages는 기본적으로 Jekyll을 사용하며, Jekyll은 언더스코어(`_`)로 시작하는 폴더를 무시합니다. Astro는 빌드 결과물(CSS, JS)을 `_astro/` 폴더에 출력하므로, GitHub Pages가 해당 폴더를 서빙하지 않습니다.
+
+**해결**: `public/` 폴더에 빈 `.nojekyll` 파일을 추가합니다. Astro는 빌드 시 `public/`의 파일을 `dist/` 루트에 복사하므로, GitHub Pages가 Jekyll 처리를 건너뛰게 됩니다.
+
+```bash
+# 빈 .nojekyll 파일 생성
+touch public/.nojekyll  # (Windows: type nul > public\.nojekyll)
+```
+
+### 문제 3: `@astrojs/sitemap` 버전 호환성
+
+**증상**: 빌드 도중 `Cannot read properties of undefined (reading 'reduce')` 에러 발생, exit code 1로 빌드 실패.
+
+**원인**: `@astrojs/sitemap`의 최신 버전(v4+)은 Astro v5에서 추가된 `astro:routes:resolved` 훅을 사용합니다. Astro v4 환경에서는 이 훅이 호출되지 않아 `_routes` 변수가 `undefined`가 되면서 에러가 발생합니다.
+
+**해결**: Astro v4와 호환되는 `@astrojs/sitemap@3.2.1`로 다운그레이드합니다.
+
+```bash
+npm install @astrojs/sitemap@3.2.1
+```
+
+### 요약
+
+| 문제 | 원인 | 해결 |
+|------|------|------|
+| 패키지 매니저 충돌 | `pnpm-lock.yaml` 잔존 → Actions가 pnpm 사용 시도 | `pnpm-lock.yaml` 삭제 |
+| `_astro/` 폴더 무시 | GitHub Pages의 Jekyll이 `_` 폴더 무시 | `public/.nojekyll` 추가 |
+| sitemap 빌드 에러 | `@astrojs/sitemap` 최신 버전이 Astro v5 전용 | `@3.2.1`로 다운그레이드 |
+
 ## Contributing
 
 Suggestions and pull requests are welcomed! Feel free to open a discussion or an issue for a new feature request or bug.
