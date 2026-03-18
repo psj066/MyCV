@@ -10,21 +10,21 @@ const last_posts = posts.slice(0, 3);
 ---
 
 <BaseLayout sideBarActiveItemID="home">
-  <div class="pb-12 mt-5">
-    <div class="text-xl py-1">Hi! 👋</div>
-    <div class="text-5xl font-bold">I'm Seongju Park</div>
-    <div class="text-3xl py-3 font-bold">Undergraduate in Computer Science at POSTECH</div>
-    <div class="py-2">
-      <text class="text-lg">
+  <div class="pb-16 mt-5 reveal">
+    <div class="text-lg py-1 opacity-60 font-medium">Hi! 👋</div>
+    <div class="text-hero mt-2">I'm Seongju Park</div>
+    <div class="text-subtitle py-3">Undergraduate in Computer Science at POSTECH</div>
+    <div class="py-3 reveal reveal-delay-1">
+      <p class="text-lg leading-relaxed opacity-70">
         I have a broad interest in <b>AI</b>, <b>HCI</b>, and <b>Psychology</b>.
         My ultimate goal is to pursue research that is necessary yet underexplored.
         Recently, I've been interested in how well the mental models of AI and humans are aligned,
         and whether this alignment can help us better understand autism.
-      </text>
+      </p>
     </div>
-    <div class="mt-8">
-      <a class="btn" href="/cv">Move to CV</a>
-      <a href="/about" class="btn btn-outline ml-5">
+    <div class="mt-10 flex gap-4 reveal reveal-delay-2">
+      <a class="btn-apple btn-apple-primary" href="/cv">Move to CV</a>
+      <a href="/about" class="btn-apple btn-apple-secondary">
         More Information
       </a>
     </div>
@@ -34,8 +34,8 @@ const last_posts = posts.slice(0, 3);
     === My Projects ===
     프로젝트가 생기면 아래 주석을 해제하고 내용을 채워주세요.
 
-    <div>
-      <div class="text-3xl w-full font-bold mb-2">My Projects {"</>"}</div>
+    <div class="reveal">
+      <div class="text-section mb-2">My Projects {"</>"}</div>
     </div>
     <HorizontalCard
       title="Project Title"
@@ -44,30 +44,32 @@ const last_posts = posts.slice(0, 3);
       url="https://..."
       badge="NEW"
     />
-    <div class="divider my-0"></div>
+    <div class="divider-subtle"></div>
   -->
 
-  <div>
-    <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from Blog</div>
+  <div class="reveal">
+    <div class="text-section mb-6 mt-10">Latest from Blog</div>
   </div>
 
   {
     last_posts.length > 0 ? (
-      last_posts.map((post) => (
+      last_posts.map((post, i) => (
         <>
-          <HorizontalCard
-            title={post.data.title}
-            img={post.data.heroImage}
-            desc={post.data.description}
-            url={"/blog/" + createSlug(post.data.title, post.slug)}
-            target="_self"
-            badge={post.data.badge}
-          />
-          <div class="divider my-0" />
+          <div class={`reveal reveal-delay-${i + 1}`}>
+            <HorizontalCard
+              title={post.data.title}
+              img={post.data.heroImage}
+              desc={post.data.description}
+              url={"/blog/" + createSlug(post.data.title, post.slug)}
+              target="_self"
+              badge={post.data.badge}
+            />
+          </div>
+          <div class="divider-subtle" />
         </>
       ))
     ) : (
-      <div class="text-base opacity-60">No posts yet. Stay tuned!</div>
+      <div class="text-base opacity-50 reveal reveal-delay-1">No posts yet. Stay tuned!</div>
     )
   }
 </BaseLayout>

@@ -4,22 +4,22 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
 ---
 
 <BaseLayout title="Resume" sideBarActiveItemID="cv">
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Education</div>
+  <div class="mb-5 reveal">
+    <div class="text-section">Education</div>
   </div>
 
-  <div class="time-line-container grid gap-4 mb-10">
+  <div class="time-line-container grid gap-4 mb-12 reveal reveal-delay-1">
     <TimeLineElement
       title="B.S. in Computer Science"
       subtitle="Currently enrolled at POSTECH, Pohang, South Korea"
     />
   </div>
 
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Relevant Coursework</div>
+  <div class="mb-5 reveal">
+    <div class="text-section">Relevant Coursework</div>
   </div>
 
-  <ul class="list-disc md:columns-2 columns-1 mx-6 mb-10">
+  <ul class="list-disc md:columns-2 columns-1 mx-6 mb-12 space-y-1 opacity-80 reveal reveal-delay-1">
     <li>Data Structures</li>
     <li>Algorithms</li>
     <li>Operating Systems</li>
@@ -33,11 +33,11 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
     <li>AI-Security <i>(Enrolled)</i></li>
   </ul>
 
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Experience</div>
+  <div class="mb-5 reveal">
+    <div class="text-section">Experience</div>
   </div>
 
-  <div class="time-line-container mb-10">
+  <div class="time-line-container mb-12 reveal reveal-delay-1">
     <TimeLineElement
       title="Software Development Intern"
       subtitle="From Jun 2025 to Aug 2025 at BlueSlab Co., Ltd., Seoul, South Korea"
@@ -60,20 +60,11 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
     </TimeLineElement>
   </div>
 
-  <!--
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Certifications</div>
-  </div>
-  <ul class="list-disc mx-6 mb-10 grid gap-2">
-    <li><a href="#" target="_blank"> Certification Name (with link)</a></li>
-  </ul>
-  -->
-
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Publications</div>
+  <div class="mb-5 reveal">
+    <div class="text-section">Publications</div>
   </div>
 
-  <div class="mb-10">
-    <div class="text-base opacity-60">There are no publications to display at this time.</div>
+  <div class="mb-12 reveal reveal-delay-1">
+    <div class="text-base opacity-50">There are no publications to display at this time.</div>
   </div>
 </BaseLayout>
